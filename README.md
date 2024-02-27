@@ -19,7 +19,7 @@
 
 - WordFrequencyCount.py
 
-- 目录 "Data/" 
+- 目录 "Data/" ：
 
   - cluster_keywords_scores.csv
 
