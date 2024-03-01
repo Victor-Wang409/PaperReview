@@ -30,3 +30,13 @@
   - regression_coefficients_pie_chart.png（论文指标对论文总分影响权重的占比图）
 
   - stopwords.txt（停词表）
+  
+  - keyword_cluster_analysis_radar_chart..png（关键词聚类分析雷达图）
+  
+  - paper_reviews_distribution_pie_chat.png（论文评语分布饼图）
+  
+  - paper_reviews_Statistical_bar_char.png（论文评语分布柱状图）
+  
+  - GUI.png（前端界面示意图）
+  
+
