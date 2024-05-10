@@ -2,7 +2,7 @@ import pandas as pd
 import os
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.svm import SVC  # 导入支持向量机分类器
 from sklearn.metrics import accuracy_score
 from joblib import dump
 
@@ -24,10 +24,10 @@ def preprocess_data(data):
     return data
 
 def train_model(data, labels, stopwords):
-    # 使用停用词训练模型
+    # 使用停用词训练SVM模型
     vectorizer = CountVectorizer(stop_words=stopwords)
     data_vec = vectorizer.fit_transform(data)
-    model = MultinomialNB()
+    model = SVC(kernel='linear')  # 使用线性核
     model.fit(data_vec, labels)
     return model, vectorizer
 
@@ -45,8 +45,8 @@ def predict(model, vectorizer, new_data):
 def save_model(model, vectorizer, model_path):
     # 保存模型和向量器到指定路径
     os.makedirs(model_path, exist_ok=True)
-    dump(model, os.path.join(model_path, 'NB_model.joblib'))
-    dump(vectorizer, os.path.join(model_path, 'NB_vectorizer.joblib'))
+    dump(model, os.path.join(model_path, 'svm_model.joblib'))
+    dump(vectorizer, os.path.join(model_path, 'svm_vectorizer.joblib'))
 
 def main():
     # 主函数，执行模型训练和评估流程
